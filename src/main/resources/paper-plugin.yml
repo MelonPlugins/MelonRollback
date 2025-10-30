@@ -1,0 +1,8 @@
+name: MelonRollback
+version: '0.1.0'
+main: org.vanillacraft.melonrollback.MelonRollback
+api-version: '1.21'
+prefix: MelonRollback
+authors: [ Dylan <opendylan@proton.me> ]
+description: Lookup and restore ANY action with extremely powerful selector queries
+website: https://vanillacraft.org/melon
