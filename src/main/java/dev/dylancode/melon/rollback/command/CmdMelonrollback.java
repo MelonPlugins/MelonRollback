@@ -1,19 +1,11 @@
 package dev.dylancode.melon.rollback.command;
 
-import dev.dylancode.melon.rollback.database.DatabaseManager;
-import dev.dylancode.melon.rollback.log.Log;
-import dev.dylancode.melon.rollback.log.MelonAction;
-import dev.dylancode.melon.rollback.query.QueryBuilder;
 import io.papermc.paper.command.brigadier.BasicCommand;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -32,7 +24,7 @@ public class CmdMelonrollback implements BasicCommand {
     }
 
     @Override
-    public @NotNull Collection<String> suggest(@NotNull CommandSourceStack ctx, @NotNull String[] args) {
+    public @NotNull Collection<String> suggest(@NotNull CommandSourceStack ctx, String @NotNull [] args) {
         return BasicCommand.super.suggest(ctx, args);
     }
 
