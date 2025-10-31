@@ -1,5 +1,7 @@
 package dev.dylancode.melon.rollback.event;
 
+import dev.dylancode.melon.rollback.log.Log;
+import dev.dylancode.melon.rollback.log.MelonAction;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,26 +13,17 @@ import java.sql.SQLException;
 import static dev.dylancode.melon.rollback.database.DatabaseManager.conn;
 
 public class EntityExplodeListener implements Listener {
-    private static final String genericInsertSql = "INSERT INTO logs" +
-            "(timestamp, action, itemname, x, y, z)" +
-            "VALUES (?,?,?,?,?,?)";
 
     @EventHandler
     public void onEntityExplode(EntityExplodeEvent event) {
-        System.out.println("block explode");
         for (Block block : event.blockList()) {
-            try {
-                PreparedStatement stmt = conn.prepareStatement(genericInsertSql);
-                stmt.setLong(1, System.currentTimeMillis());
-                stmt.setInt(2, 1);
-                stmt.setString(3, block.getType().toString().toLowerCase());
-                stmt.setInt(4, block.getX());
-                stmt.setInt(5, block.getY());
-                stmt.setInt(6, block.getZ());
-                stmt.executeUpdate();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            Log log = new Log(-1,
+                    System.currentTimeMillis(),
+                    MelonAction.BLOCK_BREAK,
+                    block.getType().toString().toLowerCase(),
+                    block.getX(), block.getY(), block.getY()
+            );
+            log.writeToDatabase();
         }
     }
 }
