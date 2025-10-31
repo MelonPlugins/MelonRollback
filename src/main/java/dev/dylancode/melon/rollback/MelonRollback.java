@@ -1,4 +1,4 @@
-package org.vanillacraft.melonrollback;
+package dev.dylancode.melon.rollback;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +15,9 @@ public final class MelonRollback extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+        getServer().getPluginManager().registerEvents(new EntityExplodeListener(), this);
+
+        registerCommand("melonrollback", new CmdMelonrollback());
     }
 
     @Override

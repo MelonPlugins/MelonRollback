@@ -1,9 +1,6 @@
-package org.vanillacraft.melonrollback;
+package dev.dylancode.melon.rollback;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseManager {
     public static Connection conn;
@@ -20,8 +17,12 @@ public class DatabaseManager {
         try (Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS logs" +
                     "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "timestamp LONG," +
                     "action INTEGER," +
-                    "itemname TEXT)");
+                    "itemname TEXT," +
+                    "x INTEGER," +
+                    "y INTEGER," +
+                    "z INTEGER)");
         }
     }
 }
