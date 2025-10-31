@@ -1,6 +1,6 @@
 name: MelonRollback
 version: '0.1.0'
-main: dev.dylancode.melon.rollback.MelonRollback
+main: dev.dylancode.melon.rollback.melonrollback.MelonRollback
 api-version: '1.21'
 prefix: MelonRollback
 authors: [ Dylan <opendylan@proton.me> ]

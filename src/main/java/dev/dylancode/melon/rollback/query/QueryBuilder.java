@@ -1,5 +1,6 @@
-package dev.dylancode.melon.rollback;
+package dev.dylancode.melon.rollback.query;
 
+import dev.dylancode.melon.rollback.log.MelonAction;
 import org.bukkit.Material;
 
 public class QueryBuilder {

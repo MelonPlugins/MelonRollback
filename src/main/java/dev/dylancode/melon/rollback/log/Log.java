@@ -1,4 +1,4 @@
-package dev.dylancode.melon.rollback;
+package dev.dylancode.melon.rollback.log;
 
 public class Log {
     int id;

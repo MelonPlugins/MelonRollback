@@ -1,4 +1,4 @@
-package dev.dylancode.melon.rollback;
+package dev.dylancode.melon.rollback.event;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -7,7 +7,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static dev.dylancode.melon.rollback.DatabaseManager.conn;
+import static dev.dylancode.melon.rollback.database.DatabaseManager.conn;
 
 public class BlockBreakListener implements Listener {
     private static final String genericInsertSql = "INSERT INTO logs" +

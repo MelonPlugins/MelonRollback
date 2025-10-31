@@ -1,4 +1,4 @@
-package dev.dylancode.melon.rollback;
+package dev.dylancode.melon.rollback.event;
 
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
@@ -8,7 +8,7 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static dev.dylancode.melon.rollback.DatabaseManager.conn;
+import static dev.dylancode.melon.rollback.database.DatabaseManager.conn;
 
 public class EntityExplodeListener implements Listener {
     private static final String genericInsertSql = "INSERT INTO logs" +

@@ -1,4 +1,4 @@
-package dev.dylancode.melon.rollback;
+package dev.dylancode.melon.rollback.command;
 
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 

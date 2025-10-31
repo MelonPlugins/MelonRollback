@@ -1,4 +1,6 @@
-package dev.dylancode.melon.rollback;
+package dev.dylancode.melon.rollback.database;
+
+import dev.dylancode.melon.rollback.melonrollback.MelonRollback;
 
 import java.sql.*;
 
