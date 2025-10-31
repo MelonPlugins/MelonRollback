@@ -26,42 +26,8 @@ public class CmdMelonrollback implements BasicCommand {
             return;
         }
         if (args[0].equalsIgnoreCase("query")) {
-            ResultSet rs;
-            ArrayList<Log> logs = new ArrayList<>();
             String[] queryArgs = Arrays.copyOfRange(args, 1, args.length);
-            QueryBuilder queryBuilder = new QueryBuilder(queryArgs);
-            if (queryBuilder.error != null) {
-                ctx.getSender().sendMessage(queryBuilder.error);
-                return;
-            }
-            String query = queryBuilder.query;
-            try {
-                Statement stmt = DatabaseManager.conn.createStatement();
-                System.out.println(query);
-                rs = stmt.executeQuery(query);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                while (rs.next()) {
-                    System.out.println(rs.getRow());
-                    int id = rs.getInt("id");
-                    long timestamp = rs.getLong("timestamp");
-                    int actionId = rs.getInt("action");
-                    String itemname = rs.getString("itemname");
-                    int x = rs.getInt("x");
-                    int y = rs.getInt("y");
-                    int z = rs.getInt("z");
-
-                    MelonAction action = MelonAction.fromId(actionId);
-                    logs.add(new Log(id, timestamp, action, itemname, x, y, z));
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            for (Log log : logs) {
-                ctx.getSender().sendMessage(log.getSummary());
-            }
+            new CmdMelonrollbackQuery(ctx, queryArgs);
         }
     }
 
