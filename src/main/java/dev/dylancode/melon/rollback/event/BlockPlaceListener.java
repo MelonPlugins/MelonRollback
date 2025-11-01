@@ -1,0 +1,22 @@
+package dev.dylancode.melon.rollback.event;
+
+import dev.dylancode.melon.rollback.log.Log;
+import dev.dylancode.melon.rollback.log.MelonAction;
+import org.bukkit.block.Block;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
+
+public class BlockPlaceListener implements Listener {
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
+        Block block = event.getBlock();
+        Log log = new Log(-1,
+                System.currentTimeMillis(),
+                MelonAction.BLOCK_PLACE,
+                block.getType().toString().toLowerCase(),
+                block.getX(), block.getY(), block.getY()
+        );
+        log.writeToDatabase();
+    }
+}

@@ -6,5 +6,6 @@ public class EventManager {
     public EventManager(MelonRollback plugin) {
         plugin.getServer().getPluginManager().registerEvents(new BlockBreakListener(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new EntityExplodeListener(), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new BlockPlaceListener(), plugin);
     }
 }
