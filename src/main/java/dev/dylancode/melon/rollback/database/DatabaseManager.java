@@ -21,6 +21,7 @@ public class DatabaseManager {
                     "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "timestamp LONG," +
                     "action INTEGER," +
+                    "executor STRING," +
                     "itemname TEXT," +
                     "x INTEGER," +
                     "y INTEGER," +

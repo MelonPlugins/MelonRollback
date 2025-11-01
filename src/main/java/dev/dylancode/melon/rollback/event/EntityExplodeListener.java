@@ -7,11 +7,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityExplodeEvent;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
-import static dev.dylancode.melon.rollback.database.DatabaseManager.conn;
-
 public class EntityExplodeListener implements Listener {
 
     @EventHandler
@@ -20,6 +15,7 @@ public class EntityExplodeListener implements Listener {
             Log log = new Log(-1,
                     System.currentTimeMillis(),
                     MelonAction.BLOCK_BREAK,
+                    "$" + event.getEntityType().toString().toLowerCase(),
                     block.getType().toString().toLowerCase(),
                     block.getX(), block.getY(), block.getY()
             );

@@ -27,13 +27,14 @@ public class Query {
                 int id = rs.getInt("id");
                 long timestamp = rs.getLong("timestamp");
                 int actionId = rs.getInt("action");
+                String executor = rs.getString("executor");
                 String itemname = rs.getString("itemname");
                 int x = rs.getInt("x");
                 int y = rs.getInt("y");
                 int z = rs.getInt("z");
 
                 MelonAction action = MelonAction.fromId(actionId);
-                logs.add(new Log(id, timestamp, action, itemname, x, y, z));
+                logs.add(new Log(id, timestamp, action, executor, itemname, x, y, z));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

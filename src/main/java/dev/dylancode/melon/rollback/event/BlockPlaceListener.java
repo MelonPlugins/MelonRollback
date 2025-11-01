@@ -14,6 +14,7 @@ public class BlockPlaceListener implements Listener {
         Log log = new Log(-1,
                 System.currentTimeMillis(),
                 MelonAction.BLOCK_PLACE,
+                event.getPlayer().getName(),
                 block.getType().toString().toLowerCase(),
                 block.getX(), block.getY(), block.getY()
         );
