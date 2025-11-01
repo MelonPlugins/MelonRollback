@@ -8,10 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
 public class BlockBreakListener implements Listener {
-    private static final String genericInsertSql = "INSERT INTO logs" +
-            "(timestamp, action, itemname, x, y, z)" +
-            "VALUES (?,?,?,?,?,?)";
-
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
