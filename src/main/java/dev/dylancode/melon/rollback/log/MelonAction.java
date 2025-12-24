@@ -20,4 +20,12 @@ public enum MelonAction {
             default -> NONE;
         };
     }
+
+    public String pastVerb() {
+        return switch (this) {
+            case NONE -> "did nothing to";
+            case BLOCK_BREAK -> "broke";
+            case BLOCK_PLACE -> "placed";
+        };
+    }
 }
