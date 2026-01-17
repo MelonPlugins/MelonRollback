@@ -16,7 +16,7 @@ public class BlockBreakListener implements Listener {
                 MelonAction.BLOCK_BREAK,
                 event.getPlayer().getName(),
                 block.getType().toString().toLowerCase(),
-                block.getX(), block.getY(), block.getY()
+                block.getX(), block.getY(), block.getZ()
         );
         log.writeToDatabase();
     }

@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class CmdMelonrollbackQuery {
     public CmdMelonrollbackQuery(@NotNull CommandSourceStack ctx, String[] queryArgs) {
-        QueryBuilder queryBuilder = new QueryBuilder(queryArgs);
+        QueryBuilder queryBuilder = new QueryBuilder(queryArgs, ctx.getLocation());
         if (queryBuilder.error != null) {
             ctx.getSender().sendMessage("&cInvalid query: " + queryBuilder.error);
             return;

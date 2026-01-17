@@ -1,6 +1,7 @@
 package dev.dylancode.melon.rollback.log;
 
-import javax.annotation.Nullable;
+import org.bukkit.Material;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -28,7 +29,7 @@ public class Log {
     }
 
     public String getSummary() {
-        return "#" + id + " " + action.toString().toLowerCase() + " (" + itemname + ")";
+        return "[" + id + "] " + executor + " " + action.pastVerb() + " " + Material.valueOf(itemname.toUpperCase()).toString().toLowerCase() + " at " + x + "," + y + "," + z;
     }
 
     private static final String genericInsertSql = "INSERT INTO logs" +
